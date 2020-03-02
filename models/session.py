@@ -1,6 +1,7 @@
 
+import random
 from datetime import timedelta
-from odoo import models, fields, api , exceptions
+from odoo import models, fields, api , exceptions , _
 
 
 class Session(models.Model):
@@ -13,6 +14,21 @@ class Session(models.Model):
     seats = fields.Integer(string="Number of seats")
     active = fields.Boolean(default=True)
     color = fields.Integer()
+    price_per_hour = fields.Integer(help="Price") # new
+    total = fields.Integer(help="total", compute='calc_total') #new
+
+    price_session = fields.Float(string="Price for Session")
+    total_price_sessions = fields.Float(string="Total")
+
+    state = fields.Selection([
+        ('draft', "DRAFT"),
+        ('confirm', "CONFIRM"),
+        ('validate', "VALIDATE"),
+    ], default='draft', string='State')
+    button_clicked = fields.Boolean(string='Button clicked')
+    invoice_ids = fields.One2many("account.move", "session_id")
+    invoice_count = fields.Integer(string="count invoice", compute="_compute_invoice_count")
+
 
 
     instructor_id = fields.Many2one('res.partner', string="Instructor",
@@ -30,6 +46,18 @@ class Session(models.Model):
 
     attendees_count = fields.Integer(
         string="Attendees count", compute='_get_attendees_count', store=True)
+
+    date = fields.Date(required=True, default=fields.Date.context_today) #new
+    # state = fields.Selection([('brouillon', "brouillon"),
+    #     ('en_cours', "En_Cours"),
+    #     ('validé', "Validé"),
+    # ], default = 'brouillon')
+    # def act_brouillon(self):
+    #     self.state = 'brouillon'
+    # def act_en_cours(self):
+    #     self.state = 'en cours'
+    # def act_valide(self):
+    #     self.state = 'validé'
 
 
 
@@ -89,3 +117,95 @@ class Session(models.Model):
             if r.instructor_id and r.instructor_id in r.attendee_ids:
                 raise exceptions.ValidationError("A session's instructor can't be an attendee")
 
+
+    
+    def test_action_serveur(self):
+        for r in self:
+            r.name = "Test New Name"
+
+    def brouillon_progressbar(self):
+        self.write({
+            'state': 'brouillon'
+        })
+
+    def confirm_progressbar(self):
+        self.write({
+            'state': 'confirm'
+        })
+
+
+    def facturer(self):
+        self.button_clicked = True
+        data = {
+            'session_id': self.id,
+            'partner_id': self.instructor_id.id,
+            'type': 'in_invoice',
+            # 'partner_shipping_id' : self.instructor_id.address,
+            'invoice_date': self.date
+        }
+        # line = {
+        #     'name': self.name,
+        #     # 'quantity': self.duration,
+        #     'price_unit': self.price_per_hour
+        # }
+       # invoice1 = self.env['account.move.line'].create(line)
+        invoice2 = self.env['account.move'].create(data)
+
+    def action_view_invoice(self):
+        invoices = self.mapped('invoice_ids')
+        action = self.env.ref('account.action_move_out_invoice_type').read()[0]
+        if len(invoices) > 1:
+            action['domain'] = [('id', 'in', invoices.ids)]
+        elif len(invoices) == 1:
+            form_view = [(self.env.ref('account.view_move_form').id, 'form')]
+            if 'views' in action:
+                action['views'] = form_view + [(state, view) for state, view in action['views'] if view != 'form']
+            else:
+                action['views'] = form_view
+            action['res_id'] = invoices.id
+        else:
+            action = {'type': 'ir.actions.act_window_close'}
+
+        context = {
+            'default_type': 'out_invoice',
+        }
+
+        action['context'] = context
+        return action
+
+    # This function is triggered when the user clicks on the button 'Done'
+    def validate_progressbar(self):
+        self.write({
+            'state': 'validate',
+        })
+
+
+
+    def calc_total(self):
+        self.total = self.duration * self.price_per_hour
+
+    def action_draft(self):
+        self.state = 'draft'
+
+    def action_confirm(self):
+        self.state = 'confirmed'
+
+    def action_done(self):
+        self.state = 'done'
+
+    def _compute_invoice_count(self):
+        self.invoice_count = self.env['account.move'].search_count([('session_id', '=', self.id)])
+
+    def _calc_total_sessions(self):
+        self.total_price_sessions = sum(self.price_session)
+
+    def _calculate_total(self):
+        # bundle = self.total_price_sessions
+        # self.lst_price = 0.0
+        # for each in bundle:
+        #     self.lst_price += each.tm_sum
+        for order in self:
+            comm_total = 10
+            for line in self.total_price_sessions:
+                comm_total += line.price_session
+            order.update({'total_price_sessions': comm_total})

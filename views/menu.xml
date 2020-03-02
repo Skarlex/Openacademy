@@ -26,6 +26,12 @@
             sequence="1"
             id="menu_board_session"/>
 
+        <menuitem id="url_menu" name="Learn odoo"
+                  parent="openacademy_menu"
+                  action="course_url_action"/>
+
+
+
 
     </data>
 </odoo>

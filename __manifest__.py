@@ -22,7 +22,9 @@
 
     # any module necessary for this one to work correctly
     'depends': ['base',
-                'board'
+                'board',
+                'portal',
+                'account',
                 ],
 
 
@@ -31,6 +33,7 @@
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+        'data/data.xml',
         'views/course_views.xml',
         'views/session_views.xml',
         'views/partner_views.xml',
@@ -38,6 +41,7 @@
         'views/session_board.xml',
         'views/reports.xml',
         'views/menu.xml',
+        'views/portal.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
