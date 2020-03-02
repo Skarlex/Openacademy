@@ -42,6 +42,7 @@
                                 <field name="price_per_hour"/>
                                 <field name="total"/>
                                 <field name="taken_seats" widget="progressbar"/>
+                                <field name="price_session"/>
                             </group>
                         </group>
 
@@ -61,6 +62,7 @@
                     <field name="course_id"/>
                      <field name="duration" invisible="1"/>
                     <field name="taken_seats" widget="progressbar"/>
+                     <field name="price_session" sum="Total"/>
                 </tree>
             </field>
         </record>

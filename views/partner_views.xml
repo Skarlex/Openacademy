@@ -7,6 +7,11 @@
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
+            <div class="oe_button_box" name="button_box">
+                        <button  name="facturer" type="object" class="oe_stat_button" icon="fa-pencil-square-o">
+                         <field name="invoice_count" widget="statinfo" string="Invoices"/>
+                        </button>
+                </div>
             <notebook position="inside">
                 <page string="Sessions">
                     <group>
@@ -17,6 +22,8 @@
             </notebook>
         </field>
     </record>
+
+
 
 
 

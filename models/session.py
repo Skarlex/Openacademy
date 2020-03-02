@@ -48,16 +48,6 @@ class Session(models.Model):
         string="Attendees count", compute='_get_attendees_count', store=True)
 
     date = fields.Date(required=True, default=fields.Date.context_today) #new
-    # state = fields.Selection([('brouillon', "brouillon"),
-    #     ('en_cours', "En_Cours"),
-    #     ('validé', "Validé"),
-    # ], default = 'brouillon')
-    # def act_brouillon(self):
-    #     self.state = 'brouillon'
-    # def act_en_cours(self):
-    #     self.state = 'en cours'
-    # def act_valide(self):
-    #     self.state = 'validé'
 
 
 
@@ -123,33 +113,49 @@ class Session(models.Model):
         for r in self:
             r.name = "Test New Name"
 
-    def brouillon_progressbar(self):
-        self.write({
-            'state': 'brouillon'
-        })
-
     def confirm_progressbar(self):
         self.write({
             'state': 'confirm'
         })
 
 
-    def facturer(self):
-        self.button_clicked = True
-        data = {
-            'session_id': self.id,
-            'partner_id': self.instructor_id.id,
-            'type': 'in_invoice',
-            # 'partner_shipping_id' : self.instructor_id.address,
-            'invoice_date': self.date
-        }
+    # def facturer(self):
+    #     self.button_clicked = True
+    #     data = {
+    #         'session_id': self.id,
+    #         'partner_id': self.instructor_id.id,
+    #         'type': 'in_invoice',
+    #         # 'partner_shipping_id' : self.instructor_id.address,
+    #         'invoice_date': self.date
+    #     }
         # line = {
         #     'name': self.name,
         #     # 'quantity': self.duration,
         #     'price_unit': self.price_per_hour
         # }
        # invoice1 = self.env['account.move.line'].create(line)
-        invoice2 = self.env['account.move'].create(data)
+       # invoice2 = self.env['account.move'].create(data)
+
+    def facturer(self):
+        self.button_clicked = True
+
+        data = {
+            'session_id': self.id,
+            'partner_id': self.instructor_id.id,
+            'type': 'in_invoice',
+           # 'partner_shipping_id': self.instructor_id.address,
+            'invoice_date': self.date,
+            "invoice_line_ids": [],
+        }
+
+        line = {
+            "name": "session",
+            "quantity": self.duration,
+            "price_unit": self.price_per_hour,
+
+        }
+        data["invoice_line_ids"].append((0, 0, line))
+        invoice = self.env['account.move'].create(data)
 
     def action_view_invoice(self):
         invoices = self.mapped('invoice_ids')
@@ -184,14 +190,6 @@ class Session(models.Model):
     def calc_total(self):
         self.total = self.duration * self.price_per_hour
 
-    def action_draft(self):
-        self.state = 'draft'
-
-    def action_confirm(self):
-        self.state = 'confirmed'
-
-    def action_done(self):
-        self.state = 'done'
 
     def _compute_invoice_count(self):
         self.invoice_count = self.env['account.move'].search_count([('session_id', '=', self.id)])

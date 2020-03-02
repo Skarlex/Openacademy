@@ -3,11 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b91fdc5f-9a0e-4077-9225-2b7bb4e06595" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__manifest__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__manifest__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/partner.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/partner.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/session.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/session.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/menu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/views/menu.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/partner_views.xml" beforeDir="false" afterPath="$PROJECT_DIR$/views/partner_views.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/session_views.xml" beforeDir="false" afterPath="$PROJECT_DIR$/views/session_views.xml" afterDir="false" />
     </list>
@@ -86,25 +83,25 @@
     </state>
     <state x="778" y="311" width="424" height="491" key="FileChooserDialogImpl/70.27.1850.1053@70.27.1850.1053" timestamp="1582753788907" />
     <state x="349" y="182" width="379" height="268" key="FileChooserDialogImpl/70.27.730.573@70.27.730.573" timestamp="1582667664442" />
-    <state width="1827" height="229" key="GridCell.Tab.0.bottom" timestamp="1583168152900">
+    <state width="1827" height="74" key="GridCell.Tab.0.bottom" timestamp="1583180955260">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
-    <state width="1827" height="229" key="GridCell.Tab.0.bottom/70.27.1850.1053@70.27.1850.1053" timestamp="1583168152900" />
+    <state width="1827" height="74" key="GridCell.Tab.0.bottom/70.27.1850.1053@70.27.1850.1053" timestamp="1583180955260" />
     <state width="707" height="164" key="GridCell.Tab.0.bottom/70.27.730.573@70.27.730.573" timestamp="1582830296705" />
-    <state width="1827" height="229" key="GridCell.Tab.0.center" timestamp="1583168152899">
+    <state width="1827" height="74" key="GridCell.Tab.0.center" timestamp="1583180955259">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
-    <state width="1827" height="229" key="GridCell.Tab.0.center/70.27.1850.1053@70.27.1850.1053" timestamp="1583168152899" />
+    <state width="1827" height="74" key="GridCell.Tab.0.center/70.27.1850.1053@70.27.1850.1053" timestamp="1583180955259" />
     <state width="707" height="164" key="GridCell.Tab.0.center/70.27.730.573@70.27.730.573" timestamp="1582830296702" />
-    <state width="1827" height="229" key="GridCell.Tab.0.left" timestamp="1583168152899">
+    <state width="1827" height="74" key="GridCell.Tab.0.left" timestamp="1583180955259">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
-    <state width="1827" height="229" key="GridCell.Tab.0.left/70.27.1850.1053@70.27.1850.1053" timestamp="1583168152899" />
+    <state width="1827" height="74" key="GridCell.Tab.0.left/70.27.1850.1053@70.27.1850.1053" timestamp="1583180955259" />
     <state width="707" height="164" key="GridCell.Tab.0.left/70.27.730.573@70.27.730.573" timestamp="1582830296701" />
-    <state width="1827" height="229" key="GridCell.Tab.0.right" timestamp="1583168152899">
+    <state width="1827" height="74" key="GridCell.Tab.0.right" timestamp="1583180955260">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
-    <state width="1827" height="229" key="GridCell.Tab.0.right/70.27.1850.1053@70.27.1850.1053" timestamp="1583168152899" />
+    <state width="1827" height="74" key="GridCell.Tab.0.right/70.27.1850.1053@70.27.1850.1053" timestamp="1583180955260" />
     <state width="707" height="164" key="GridCell.Tab.0.right/70.27.730.573@70.27.730.573" timestamp="1582830296703" />
     <state width="1827" height="74" key="GridCell.Tab.1.bottom" timestamp="1582559089016">
       <screen x="70" y="27" width="1850" height="1053" />
@@ -127,10 +124,10 @@
     </state>
     <state x="123" y="236" key="com.intellij.ide.util.TipDialog/70.27.1850.1053@70.27.1850.1053" timestamp="1582913251200" />
     <state x="91" y="141" key="com.intellij.ide.util.TipDialog/70.27.730.573@70.27.730.573" timestamp="1583167764856" />
-    <state x="825" y="192" width="714" height="578" key="find.popup" timestamp="1583129943656">
+    <state x="825" y="192" width="714" height="578" key="find.popup" timestamp="1583173016477">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
-    <state x="825" y="192" width="714" height="578" key="find.popup/70.27.1850.1053@70.27.1850.1053" timestamp="1583129943656" />
+    <state x="825" y="192" width="714" height="578" key="find.popup/70.27.1850.1053@70.27.1850.1053" timestamp="1583173016477" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
