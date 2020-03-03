@@ -25,6 +25,7 @@
                 'board',
                 'portal',
                 'account',
+                'mail',
                 ],
 
 

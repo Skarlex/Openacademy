@@ -6,6 +6,7 @@ from odoo import models, fields, api , exceptions , _
 
 class Session(models.Model):
     _name = 'openacademy.session'
+    _inherit = ['mail.thread']
     _description = "OpenAcademy Sessions"
 
     name = fields.Char(required=True)
