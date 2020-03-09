@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b91fdc5f-9a0e-4077-9225-2b7bb4e06595" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__manifest__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__manifest__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/course.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/course.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/session.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/session.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/course_views.xml" beforeDir="false" afterPath="$PROJECT_DIR$/views/course_views.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/session_views.xml" beforeDir="false" afterPath="$PROJECT_DIR$/views/session_views.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,10 +71,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="453" y="211" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582838370010">
+    <state x="453" y="211" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583515272912">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
-    <state x="453" y="211" key="#com.intellij.execution.impl.EditConfigurationsDialog/70.27.1850.1053@70.27.1850.1053" timestamp="1582838370010" />
+    <state x="453" y="211" key="#com.intellij.execution.impl.EditConfigurationsDialog/70.27.1850.1053@70.27.1850.1053" timestamp="1583515272912" />
     <state x="778" y="311" width="379" height="268" key="FileChooserDialogImpl" timestamp="1582753788907">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
@@ -120,15 +116,15 @@
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
     <state width="1827" height="74" key="GridCell.Tab.1.right/70.27.1850.1053@70.27.1850.1053" timestamp="1582559089016" />
-    <state x="91" y="141" key="com.intellij.ide.util.TipDialog" timestamp="1583255796778">
-      <screen x="70" y="27" width="730" height="573" />
-    </state>
-    <state x="123" y="236" key="com.intellij.ide.util.TipDialog/70.27.1850.1053@70.27.1850.1053" timestamp="1583193008586" />
-    <state x="91" y="141" key="com.intellij.ide.util.TipDialog/70.27.730.573@70.27.730.573" timestamp="1583255796778" />
-    <state x="825" y="192" width="714" height="578" key="find.popup" timestamp="1583173016477">
+    <state x="123" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1583797510521">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
-    <state x="825" y="192" width="714" height="578" key="find.popup/70.27.1850.1053@70.27.1850.1053" timestamp="1583173016477" />
+    <state x="123" y="236" key="com.intellij.ide.util.TipDialog/70.27.1850.1053@70.27.1850.1053" timestamp="1583797510521" />
+    <state x="91" y="141" key="com.intellij.ide.util.TipDialog/70.27.730.573@70.27.730.573" timestamp="1583703572745" />
+    <state x="825" y="192" width="714" height="578" key="find.popup" timestamp="1583517423778">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state x="825" y="192" width="714" height="578" key="find.popup/70.27.1850.1053@70.27.1850.1053" timestamp="1583517423778" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
